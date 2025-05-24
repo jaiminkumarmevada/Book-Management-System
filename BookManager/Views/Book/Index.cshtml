@@ -1,58 +1,63 @@
 ﻿@model BookManager.Context.Book
 
 @{
-    ViewBag.Title = "Add Book";
+    ViewBag.Title = "Add/Edit Book";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <style>
     .error {
-
-        color:red;
+        color: red;
     }
-
-
 </style>
 
-<h2>Add Book</h2>
+<h2>Add/Edit Book</h2> 
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
 
 @using (Html.BeginForm("AddBook", "Book", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
 
-<div class="container">
+    <div class="container">
 
-    @* Title Field *@
-    <div class="form-group">
-        <label>Title</label>
-        @Html.ValidationMessageFor(x => x.Title, "", new { @class = "error" })
-        @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+        @* Title Field *@
+        <div class="form-group">
+            @Html.HiddenFor(model => model.ID);
+            <label>Title</label>
+            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "error" })
+            @Html.TextBoxFor(model => model.Title, new { @class = "form-control" })
+        </div>
+
+
+
+        @* Author Field *@
+        <div class="form-group">
+            <label>Author</label>
+            @Html.TextBoxFor(model => model.Author, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Author, "", new { @class = "error" })
+        </div>
+
+        @* Price Field *@
+        <div class="form-group">
+            <label>Price</label>
+            @Html.TextBoxFor(model => model.Price, new { @class = "form-control", type = "number", step = "0.01" })
+            @Html.ValidationMessageFor(model => model.Price, "", new { @class = "error" })
+        </div>
+
+        @* Published Date Field *@
+        <div class="form-group">
+            <label>Published Date</label>
+            @Html.TextBoxFor(model => model.PublishedDate, new { @class = "form-control", type = "date" })
+            @Html.ValidationMessageFor(model => model.PublishedDate, "", new { @class = "error" })
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Clear</button>
     </div>
-       
-        
-
-    @* Author Field *@
-    <div class="form-group">
-        <label>Author</label>
-        @Html.TextBoxFor(x => x.Author, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.Author, "", new { @class = "error" })
-    </div>
-
-    @* Price Field *@
-    <div class="form-group">
-        <label>Price</label>
-        @Html.TextBoxFor(x => x.Price, new { @class = "form-control", type = "number", step = "0.01" })
-        @Html.ValidationMessageFor(x => x.Price, "", new { @class = "error" })
-    </div>
-
-    @* Published Date Field *@
-    <div class="form-group">
-        <label>Published Date</label>
-        @Html.TextBoxFor(x => x.PublishedDate, new { @class = "form-control", type = "date" })
-        @Html.ValidationMessageFor(x => x.PublishedDate, "", new { @class = "error" })
-    </div>
-
-    <button type="submit" class="btn btn-primary">Add Book</button>
-    <button type="submit" class="btn btn-primary">Reset</button>
-</div>
 }

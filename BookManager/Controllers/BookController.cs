@@ -1,6 +1,7 @@
 ﻿using BookManager.Context;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -15,26 +16,39 @@ namespace BookManager.Controllers
         // GET: Book
         public ActionResult Index(Book obj)
         {
-            if (obj != null)
+           
                 return View(obj);
-            else
-                return View();
+           
         }
 
         [HttpPost]
         public ActionResult AddBook(Book Model)
         {
+            //Add and Update Both in same form
 
             if (ModelState.IsValid)
             {
                 Book obj = new Book();
-                // obj.ID = Model.ID;
+                obj.ID = Model.ID;
                 obj.Title = Model.Title;
                 obj.Author = Model.Author;
                 obj.Price = Model.Price;
                 obj.PublishedDate = Model.PublishedDate;
-                dbObj.Books.Add(obj);
-                dbObj.SaveChanges();
+
+
+                if (Model.ID == 0)
+                {
+                    dbObj.Books.Add(obj);
+                    dbObj.SaveChanges();
+                    TempData["SuccessMessage"] = "Book added successfully!";
+                }
+                else
+                {
+                    dbObj.Entry(obj).State= EntityState.Modified;
+                    dbObj.SaveChanges();
+                    TempData["SuccessMessage"] = "Book updated successfully!";
+                }
+                
             }
             ModelState.Clear();
             return View("Index");
@@ -46,15 +60,19 @@ namespace BookManager.Controllers
             var res = dbObj.Books.ToList();
             return View(res);
         }
+
         public ActionResult Delete(int ID)
         {
-            var res = dbObj.Books.Where(model => model.ID == ID).First();
-            dbObj.Books.Remove(res);
-            dbObj.SaveChanges();
-            var list = dbObj.Books.ToList();
-            return View("BookList", dbObj.Books.ToList());
-
+            var res = dbObj.Books.Where(model => model.ID == ID).FirstOrDefault();
+            if (res != null)
+            {
+                dbObj.Books.Remove(res);
+                dbObj.SaveChanges();
+                TempData["SuccessMessage"] = "Book deleted successfully!";
+            }
+            return RedirectToAction("BookList");
         }
+
 
     }
 }
