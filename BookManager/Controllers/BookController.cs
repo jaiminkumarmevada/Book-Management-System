@@ -46,7 +46,10 @@ namespace BookManager.Controllers
         public ActionResult Delete(int ID)
         {
             var res = dbObj.Books.Where(model => model.ID == ID).First();
-            return View(res);
+            dbObj.Books.Remove(res);
+            dbObj.SaveChanges();
+            var list = dbObj.Books.ToList();
+            return View("BookList",res);
         }
 
     }
