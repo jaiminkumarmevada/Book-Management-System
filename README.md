@@ -29,35 +29,11 @@ This is a simple and efficient ASP.NET MVC application for managing a list of bo
 
 ## 📁 Folder Structure
 
-/BookManager
-│
-├── Controllers/
-│ └── BookController.cs # Main controller handling CRUD logic
-
-│
-├── Views/
-│ └── Book/
-│ ├── Index.cshtml # Add/Edit Book Form
-│ └── BookList.cshtml # Displays list of all books
-
-│
-├── Context/
-│ └── BookModel.edmx # Entity Framework model file
-│ └── Book.cs # Partial class for Book with DataAnnotations
-│
-
-├── Models/ # Optional (if needed for view models)
-│
-
-├── Scripts/
-│
-
-├── Content/
-
-│ └── bootstrap.css # Bootstrap for UI styling
-│
-
-└── Web.config # Database connection string
+**Context** ---> This folder contains the EDMX Entity Framework file  
+**Controllers** ---> BookController  
+**Views** --->  
+1. BookList View (It shows all the added books)  
+2. Index View (It contains the form for Edit and Add Book)  
 
 
 ---
