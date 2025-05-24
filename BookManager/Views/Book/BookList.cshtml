@@ -43,7 +43,7 @@
 
         </td>*@
         <td>
-            <a href="#" class="btn btn-success">Edit</a>
+            <a href="@Url.Action("Index",new {item.ID,item.Title,item.Author,item.Price,item.PublishedDate})" class="btn btn-success">Edit</a>
             <a href="@Url.Action("Delete",new {item.ID})" class="btn btn-danger">Delete</a>
         </td>
     </tr>

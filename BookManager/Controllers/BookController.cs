@@ -13,9 +13,12 @@ namespace BookManager.Controllers
 
 
         // GET: Book
-        public ActionResult Index()
+        public ActionResult Index(Book obj)
         {
-            return View();
+            if (obj != null)
+                return View(obj);
+            else
+                return View();
         }
 
         [HttpPost]
@@ -49,7 +52,8 @@ namespace BookManager.Controllers
             dbObj.Books.Remove(res);
             dbObj.SaveChanges();
             var list = dbObj.Books.ToList();
-            return View("BookList",res);
+            return View("BookList", dbObj.Books.ToList());
+
         }
 
     }
