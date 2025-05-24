@@ -1,7 +1,5 @@
 <p align="center">
   <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft Logo" width="120" style="margin-right:25px;"/>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Microsoft_Asp.Net_logo.svg" alt="ASP.NET MVC Logo" width="120" style="margin-right:25px;"/>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_SQL_Server_Logo.svg" alt="SQL Server Logo" width="120"/>
 </p>
 
 # 📚 Book Manager - ASP.NET MVC CRUD Application
