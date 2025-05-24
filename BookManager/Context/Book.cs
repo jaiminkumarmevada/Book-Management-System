@@ -17,13 +17,14 @@ namespace BookManager.Context
     {
         public int ID { get; set; }
 
-        [Required(ErrorMessage ="Required")]
+        [Required(ErrorMessage ="*")]
         public string Title { get; set; }
 
-        [Required(ErrorMessage = "Required")]
+        [Required(ErrorMessage = "*")]
         public string Author { get; set; }
 
-        [Required(ErrorMessage = "Required")]
+        [Required(ErrorMessage = "*")]
+        [Range(1, 10000, ErrorMessage = "Price must be between 1 and 10,000")]
         public decimal Price { get; set; }
 
         public Nullable<System.DateTime> PublishedDate { get; set; }
