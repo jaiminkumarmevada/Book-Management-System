@@ -33,23 +33,30 @@ This is a simple and efficient ASP.NET MVC application for managing a list of bo
 │
 ├── Controllers/
 │ └── BookController.cs # Main controller handling CRUD logic
+
 │
 ├── Views/
 │ └── Book/
 │ ├── Index.cshtml # Add/Edit Book Form
 │ └── BookList.cshtml # Displays list of all books
+
 │
 ├── Context/
 │ └── BookModel.edmx # Entity Framework model file
 │ └── Book.cs # Partial class for Book with DataAnnotations
 │
+
 ├── Models/ # Optional (if needed for view models)
 │
+
 ├── Scripts/
 │
+
 ├── Content/
+
 │ └── bootstrap.css # Bootstrap for UI styling
 │
+
 └── Web.config # Database connection string
 
 
