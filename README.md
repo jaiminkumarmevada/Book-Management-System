@@ -1,3 +1,13 @@
+## 📝 Quick Notes
+
+- 1. Added Context folder for separated entity model using `.edmx`
+- 2. Checked that blank data is not accepted
+- 3. Validation added using Data Annotations
+- 4. Add and Edit use the same form for reusability
+- 5. Success messages handled via `TempData`
+- 6. Clean, responsive UI using Bootstrap
+
+
 <p align="center">
   <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft Logo" width="120" style="margin-right:25px;"/>
 </p>
@@ -5,6 +15,9 @@
 # 📚 Book Manager - ASP.NET MVC CRUD Application
 
 This is a simple and efficient ASP.NET MVC application for managing a list of books. It demonstrates CRUD (Create, Read, Update, Delete) operations using **Entity Framework** and **Bootstrap** styling for a user-friendly UI.
+
+---
+
 
 ---
 
@@ -34,7 +47,6 @@ This is a simple and efficient ASP.NET MVC application for managing a list of bo
 **Views** --->  
 1. BookList View (It shows all the added books)  
 2. Index View (It contains the form for Edit and Add Book)  
-
 
 ---
 
@@ -75,6 +87,3 @@ This is a simple and efficient ASP.NET MVC application for managing a list of bo
 - `Title`, `Author`, and `Price` fields are marked as **Required**.
 - `Price` includes a `[Range]` validator to allow only valid decimal prices.
 - `PublishedDate` is optional and supports date picker UI.
-
----
-
