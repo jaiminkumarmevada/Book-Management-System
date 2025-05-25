@@ -27,4 +27,17 @@
 - **Razor View Engine**
 - **SQL Server**
 
+## 📸 Project Screenshots
+
+### 🏠 Book List Page
+![Book List](screenshots/book-list.png)
+
+### ➕ Add Book Form
+![Add Book](screenshots/add-book.png)
+
+### ✏️ Edit Book Form
+![Edit Book](screenshots/edit-book.png)
+
+### ❌ Delete Confirmation
+![Delete Confirmation](screenshots/delete-confirmation.png)
 
