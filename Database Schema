@@ -1,0 +1,13 @@
+CREATE DATABASE BookManagerDB;
+
+USE BookManagerDB;
+
+CREATE TABLE Books (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    Title NVARCHAR(255) NOT NULL,
+    Author NVARCHAR(255) NOT NULL,
+    Price DECIMAL(10, 2) NOT NULL,
+    PublishedDate DATETIME NULL
+);
+
+SELECT * FROM Books;
