@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Web; 
+using System.Web;
 using System.Web.Mvc;
 
 namespace BookManager.Controllers
@@ -12,28 +12,36 @@ namespace BookManager.Controllers
     {
         BookManagerDBEntities dbContext = new BookManagerDBEntities();
 
-
-        public ActionResult Form(Book obj)
+        public ActionResult Form(int? id)
         {
+            Book obj = new Book();
+
+            if (id != null)
+            {
+                obj = dbContext.Books.FirstOrDefault(b => b.ID == id);
+                if (obj == null)
+                {
+                    return HttpNotFound();
+                }
+            }
 
             return View(obj);
-
         }
+
 
         [HttpPost]
         public ActionResult AddBook(Book Model)
         {
-            
-
             if (ModelState.IsValid)
             {
-                Book obj = new Book();
-                obj.ID = Model.ID;
-                obj.Title = Model.Title;
-                obj.Author = Model.Author;
-                obj.Price = Model.Price;
-                obj.PublishedDate = Model.PublishedDate;
-
+                Book obj = new Book
+                {
+                    ID = Model.ID,
+                    Title = Model.Title,
+                    Author = Model.Author,
+                    Price = Model.Price,
+                    PublishedDate = Model.PublishedDate
+                };
 
                 if (Model.ID == 0)
                 {
@@ -43,16 +51,18 @@ namespace BookManager.Controllers
                 }
                 else
                 {
-                    dbContext.Entry(obj).State= EntityState.Modified;
+                    dbContext.Entry(obj).State = EntityState.Modified;
                     dbContext.SaveChanges();
                     TempData["SuccessMessage"] = "Book updated successfully!";
                 }
-                
-            }
-            ModelState.Clear();
-            return View("Form");
-        }
 
+         
+                return RedirectToAction("Form");
+            }
+
+           
+            return View("Form", Model);
+        }
 
         public ActionResult BookList()
         {
@@ -62,7 +72,7 @@ namespace BookManager.Controllers
 
         public ActionResult Delete(int ID)
         {
-            var res = dbContext.Books.Where(model => model.ID == ID).FirstOrDefault();
+            var res = dbContext.Books.FirstOrDefault(model => model.ID == ID);
             if (res != null)
             {
                 dbContext.Books.Remove(res);
@@ -71,7 +81,5 @@ namespace BookManager.Controllers
             }
             return RedirectToAction("BookList");
         }
-
-
     }
 }

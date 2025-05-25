@@ -26,51 +26,33 @@
 
     <div class="container">
 
-
-
-        @* Title Field *@
         <div class="form-group">
             @Html.HiddenFor(model => model.ID)
             <label>Title</label>
-            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "error" })
             @Html.TextBoxFor(model => model.Title, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "error" })
         </div>
 
-
-
-        @* Author Field *@
         <div class="form-group">
             <label>Author</label>
-            @Html.ValidationMessageFor(model => model.Author, "", new { @class = "error" })
             @Html.TextBoxFor(model => model.Author, new { @class = "form-control" })
-
+            @Html.ValidationMessageFor(model => model.Author, "", new { @class = "error" })
         </div>
 
-
-
-        @* Price Field *@
         <div class="form-group">
             <label>Price</label>
-            @Html.ValidationMessageFor(model => model.Price, "", new { @class = "error" })
             @Html.TextBoxFor(model => model.Price, new { @class = "form-control", type = "number", step = "0.01" })
-
+            @Html.ValidationMessageFor(model => model.Price, "", new { @class = "error" })
         </div>
 
-
-
-
-        @* Published Date Field *@
         <div class="form-group">
             <label>Published Date</label>
+            @Html.TextBoxFor(model => model.PublishedDate, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
             @Html.ValidationMessageFor(model => model.PublishedDate, "", new { @class = "error" })
-            @Html.TextBoxFor(model => model.PublishedDate, new { @class = "form-control", type = "date" })
-
         </div>
 
-
-
         <button type="submit" class="btn btn-primary">Submit</button>
-        <button type="submit" class="btn btn-primary">Clear</button>
+        <button type="reset" class="btn btn-secondary">Clear</button>
         <a href="@Url.Action("BookList", "Book")" class="btn btn-success">BookList</a>
 
     </div>
