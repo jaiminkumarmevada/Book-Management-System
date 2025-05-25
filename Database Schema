@@ -11,3 +11,28 @@ CREATE TABLE Books (
 );
 
 SELECT * FROM Books;
+
+
+---sample data (Gujarati)
+
+INSERT INTO Books (Title, Author, Price, PublishedDate) VALUES
+(N'Saraswatichandra', N'Govindram Tripathi', 350.00, '1892-03-01'),
+(N'Zhulva', N'Dayaram', 180.00, '1800-07-15'),
+(N'Manvintha', N'Zaverchand Meghani', 220.00, '1920-08-01'),
+(N'Arasparas', N'Dhruv Bhatt', 275.00, '2002-10-10'),
+(N'Moolsthan', N'Vinod Bhatt', 199.00, '1998-06-25'),
+(N'Kachbani Mudra', N'Pratik Gandhavi', 150.00, '2010-01-01'),
+(N'Ardhasatya', N'Nagin Desai', 210.00, '1975-04-20'),
+(N'Sanjhni Sathe', N'Kanu Bhagat', 165.00, '2005-09-14'),
+(N'Ghat Paat', N'Somnath Mehta', 250.00, '1983-03-30'),
+(N'Parijat', N'Harshad Trivedi', 300.00, '1995-11-22'),
+(N'Zharan', N'Rajendra Shukla', 190.00, '1989-05-12'),
+(N'Vitran', N'Chandrakant Bakshi', 240.00, '1970-08-08'),
+(N'Tapovan', N'Makarand Dave', 260.00, '1987-12-03'),
+(N'Vishwas', N'Hemant Desai', 175.00, '2015-02-28'),
+(N'Antarnad', N'Bakul Trivedi', 225.00, '2001-07-07'),
+(N'Goonju', N'Manoj Khanderia', 205.00, '2009-06-06'),
+(N'Aakashganga', N'Mehul Desai', 195.00, '2012-09-09'),
+(N'Truna', N'Sweety Dave', 185.00, '2018-11-11'),
+(N'Shabsiddhi', N'Nayan Desai', 210.00, '2020-03-03'),
+(N'Prakashpanth', N'Ravi Shukla', 230.00, '2021-08-15');
