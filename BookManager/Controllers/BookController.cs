@@ -11,7 +11,9 @@ namespace BookManager.Controllers
     public class BookController : Controller
     {
         BookManagerDBEntities dbContext = new BookManagerDBEntities();
+        
 
+        //Form for Edit and Add 
         public ActionResult Form(int? id)
         {
             Book obj = new Book();
