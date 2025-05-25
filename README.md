@@ -30,14 +30,15 @@
 ## 📸 Project Screenshots
 
 ### 🏠 Book List Page
-![Book List](screenshots/book-list.png)
+![Book List](screenshots/BookList.png)
 
 ### ➕ Add Book Form
-![Add Book](screenshots/add-book.png)
+![Add Book](screenshots/AddBookForm.png)
 
-### ✏️ Edit Book Form
-![Edit Book](screenshots/edit-book.png)
+### ✏️ Validation Message in Form
+![Edit Book](screenshots/ValidationMessage.png)
 
 ### ❌ Delete Confirmation
-![Delete Confirmation](screenshots/delete-confirmation.png)
+![Delete Confirmation](screenshots/ConfirmationBeforeDeleteBook.png)
+
 
