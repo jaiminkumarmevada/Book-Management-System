@@ -6,14 +6,15 @@
 - Add and Edit use the same form for reusability
 - Success messages handled via `TempData`
 - Clean, responsive UI using Bootstrap
+  
 ---
 ## 📁 Folder Structure
 
-**Context** ---> This folder contains the EDMX Entity Framework file  
-**Controllers** ---> BookController  
-**Views** --->  
-1. BookList View (It shows all the added books)  
-2. Index View (It contains the form for Edit and Add Book)  
+**Context**      ---> This folder contains the EDMX Entity Framework file  
+**Controllers**  ---> BookController  
+
+**Views**         --->     1. BookList View (It shows list of exisitng books)
+                  --->    2.Form View (It contains the form for Edit and Add Book)  
 
 ---
 
