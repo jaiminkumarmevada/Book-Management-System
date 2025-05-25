@@ -10,10 +10,8 @@ namespace BookManager.Controllers
 {
     public class BookController : Controller
     {
-        BookManagerDBEntities dbObj= new BookManagerDBEntities();
+        BookManagerDBEntities dbContext = new BookManagerDBEntities();
 
-
-        // GET: Book
 
         public ActionResult Form(Book obj)
         {
@@ -39,14 +37,14 @@ namespace BookManager.Controllers
 
                 if (Model.ID == 0)
                 {
-                    dbObj.Books.Add(obj);
-                    dbObj.SaveChanges();
+                    dbContext.Books.Add(obj);
+                    dbContext.SaveChanges();
                     TempData["SuccessMessage"] = "Book added successfully!";
                 }
                 else
                 {
-                    dbObj.Entry(obj).State= EntityState.Modified;
-                    dbObj.SaveChanges();
+                    dbContext.Entry(obj).State= EntityState.Modified;
+                    dbContext.SaveChanges();
                     TempData["SuccessMessage"] = "Book updated successfully!";
                 }
                 
@@ -58,17 +56,17 @@ namespace BookManager.Controllers
 
         public ActionResult BookList()
         {
-            var res = dbObj.Books.ToList();
+            var res = dbContext.Books.ToList();
             return View(res);
         }
 
         public ActionResult Delete(int ID)
         {
-            var res = dbObj.Books.Where(model => model.ID == ID).FirstOrDefault();
+            var res = dbContext.Books.Where(model => model.ID == ID).FirstOrDefault();
             if (res != null)
             {
-                dbObj.Books.Remove(res);
-                dbObj.SaveChanges();
+                dbContext.Books.Remove(res);
+                dbContext.SaveChanges();
                 TempData["SuccessMessage"] = "Book deleted successfully!";
             }
             return RedirectToAction("BookList");
