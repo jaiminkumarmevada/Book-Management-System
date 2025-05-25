@@ -14,17 +14,18 @@ namespace BookManager.Controllers
 
 
         // GET: Book
-        public ActionResult Index(Book obj)
+
+        public ActionResult Form(Book obj)
         {
-           
-                return View(obj);
-           
+
+            return View(obj);
+
         }
 
         [HttpPost]
         public ActionResult AddBook(Book Model)
         {
-            //Add and Update Both in same form
+            
 
             if (ModelState.IsValid)
             {
@@ -51,7 +52,7 @@ namespace BookManager.Controllers
                 
             }
             ModelState.Clear();
-            return View("Index");
+            return View("Form");
         }
 
 

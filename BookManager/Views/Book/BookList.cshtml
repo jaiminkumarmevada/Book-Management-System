@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<BookManager.Context.Book>
 
 <p>
-    @Html.ActionLink("Add Book", "Index", null, new { @class = "btn btn-primary mb-3" })
+    @Html.ActionLink("Add Book", "Form", null, new { @class = "btn btn-primary mb-3" })
 </p>
 
 
@@ -25,7 +25,7 @@
             <td>@(item.PublishedDate?.ToString("yyyy-MM-dd"))</td>
 
             <td>
-                <a href="@Url.Action("Index", new { item.ID, item.Title, item.Author, item.Price, item.PublishedDate })" class="btn btn-success">Edit</a>
+                <a href="@Url.Action("Form", new { item.ID, item.Title, item.Author, item.Price, item.PublishedDate })" class="btn btn-success">Edit</a>
                 <a href="@Url.Action("Delete", new { item.ID })"
                    class="btn btn-danger"
                    onclick="return confirm('Are you sure you want to delete this book?');">
