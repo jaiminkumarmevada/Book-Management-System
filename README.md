@@ -1,11 +1,11 @@
 ## 📝 Quick Notes
 
-- 1. Added Context folder for separated entity model using `.edmx`
-- 2. Checked that blank data is not accepted
-- 3. Validation added using Data Annotations
-- 4. Add and Edit use the same form for reusability
-- 5. Success messages handled via `TempData`
-- 6. Clean, responsive UI using Bootstrap
+- Added Context folder for separated entity model using `.edmx`
+- Checked that blank data is not accepted
+- Validation added using Data Annotations
+- Add and Edit use the same form for reusability
+- Success messages handled via `TempData`
+- Clean, responsive UI using Bootstrap
 
 
 <p align="center">
